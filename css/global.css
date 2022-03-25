@@ -1,0 +1,407 @@
+@charset "utf-8";
+
+/* --------------------重置样式-------------------------------- */
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+blockquote,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+button,
+input,
+textarea,
+th,
+td {
+    margin: 0;
+    padding: 0
+}
+
+/*设置默认字体*/
+body {
+    font-size: 14px;
+    font-style: normal;
+    font-family: -apple-system, BlinkMacSystemFont, segoe ui, Roboto, helvetica neue, Arial, noto sans, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol, noto color emoji;
+}
+
+/*字体太小用户体检不好，让small恢复12px*/
+small {
+    font-size: 12px
+}
+
+h1 {
+    font-size: 18px
+}
+
+h2 {
+    font-size: 16px
+}
+
+h3 {
+    font-size: 14px
+}
+
+h4,
+h5,
+h6 {
+    font-size: 100%
+}
+
+ul,
+ol {
+    list-style: none
+}
+
+a {
+    text-decoration: none;
+    background-color: transparent
+}
+
+a:hover,
+a:active {
+    outline-width: 0;
+    text-decoration: none
+}
+
+/*重置表格*/
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+/*重置hr*/
+hr {
+    border: 0;
+    height: 1px
+}
+
+/*图形图片*/
+img {
+    border-style: none
+}
+
+img:not([src]) {
+    display: none
+}
+
+svg:not(:root) {
+    overflow: hidden
+}
+
+/*下面的操作是针对于html5页面布局准备的，不支持ie6~8以及其他低版本的浏览器*/
+html {
+    /*禁用系统默认菜单*/
+    -webkit-touch-callout: none;
+    /*关闭iphone & Android的浏览器纵向和横向模式中自动调整字体大小的功能*/
+    -webkit-text-size-adjust: 100%
+}
+
+input,
+textarea,
+button,
+a {
+    /*表单或者a标签在手机点击时会出现边框或彩色的背景区域，意思是去除点击背景框*/
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+}
+
+/*重置html5元素的默认样式*/
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+    display: block
+}
+
+audio,
+canvas,
+progress,
+video {
+    display: inline-block
+}
+
+audio:not([controls]),
+video:not([controls]) {
+    display: none;
+    height: 0
+}
+
+progress {
+    vertical-align: baseline
+}
+
+mark {
+    background-color: #ff0;
+    color: #000
+}
+
+sub,
+sup {
+    position: relative;
+    font-size: 75%;
+    line-height: 0;
+    vertical-align: baseline
+}
+
+sub {
+    bottom: -0.25em
+}
+
+sup {
+    top: -0.5em
+}
+
+button,
+input,
+select,
+textarea {
+    font-size: 100%;
+    outline: 0
+}
+
+button,
+input {
+    overflow: visible
+}
+
+button,
+select {
+    text-transform: none
+}
+
+textarea {
+    overflow: auto
+}
+
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"] {
+    -webkit-appearance: button
+}
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+    border-style: none;
+    padding: 0
+}
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+    outline: 1px dotted ButtonText
+}
+
+[type="checkbox"],
+[type="radio"] {
+    box-sizing: border-box;
+    padding: 0
+}
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+    height: auto
+}
+
+[type="search"] {
+    -webkit-appearance: textfield;
+    outline-offset: -2px
+}
+
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none
+}
+
+::-webkit-input-placeholder {
+    color: inherit;
+    opacity: .54
+}
+
+::-webkit-file-upload-button {
+    -webkit-appearance: button;
+    font: inherit
+}
+
+/* 超链接的字体颜色继承父元素 */
+a {
+    color: inherit;
+}
+
+/* --------------------通用方法------------------------------- */
+.show {
+    display: block !important;
+}
+
+.hide {
+    display: none !important;
+}
+
+/* --------------------通用布局(g-)-------------------------------- */
+.g-ant {
+    display: flex;
+}
+
+/* 左边菜单栏 */
+.g-ant__sider {
+    background-color: #00152a;
+    min-height: 100vh;
+    width: 208px;
+    flex-shrink: 0;
+    color: #fff;
+}
+
+/* 菜单栏关闭状态 */
+.g-ant__sider--close {
+    width: 48px;
+    overflow: hidden;
+}
+
+/* 菜单关闭状态时将logo区域向左边移动 */
+.g-ant__sider--close .g-ant-sider-header__logo {
+    margin-left: 8px;
+}
+
+/* 菜单关闭状态时将主区域向左边移动 */
+.g-ant__sider--close .g-ant-sider__main {
+    margin-left: -5px;
+
+}
+
+/* 菜单关闭状态时将主区域的文字向右边移动，防止展示出来 */
+.g-ant__sider--close .m-menu-content__title {
+    margin-left: 20px;
+}
+
+/* 菜单包容器 */
+.g-ant-sider__wrap {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* 菜单栏固定 */
+.g-ant-sider__wrap--fixed {
+    position: fixed;
+    width: 208px;
+    left: 0;
+    top: 0;
+}
+
+/* logo区域 */
+.g-ant-sider__header {
+    height: 64px;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.g-ant-sider-header__logo {
+    margin-left: 16px;
+    margin-right: 12px;
+}
+
+/* 菜单项 */
+.g-ant-sider__main {
+    flex-grow: 1;
+}
+
+/* 底部按钮 */
+.g-ant-sider__footer {
+    flex-shrink: 0;
+    height: 45px;
+    line-height: 45px;
+    padding-left: 13px;
+    border-top: 1px solid #001122;
+}
+
+
+
+
+
+
+
+
+
+/* 右边版心 */
+.g-ant__main {
+    flex-grow: 1;
+    background-color: #f1f2f6;
+}
+
+/* --------------------通用模块(m-)-------------------------------- */
+/* logo图片 */
+.m-logo__img {
+    width: 32px;
+    height: 32px;
+}
+
+/* 菜单 */
+.m-menu {
+    color: #aaadb2;
+}
+
+.m-menu--selected {
+    color: #fff;
+}
+
+/* 选中菜单时显示其子菜单 */
+.m-menu--selected .m-menu__sub {
+    display: block;
+}
+
+.m-menu__content {
+    height: 44px;
+    padding: 0 21px 0 18px;
+    display: flex;
+    align-items: center;
+}
+
+.m-menu-content__title {
+    margin: 0 auto 0 11px;
+}
+
+/* 菜单下的子菜单 默认隐藏*/
+.m-menu__sub {
+    display: none;
+    background-color: #000c18;
+}
+
+.m-menu__sub li {
+    height: 40px;
+    line-height: 40px;
+    padding-left: 48px;
+    color: #a2afb8;
+}
+
+.m-menu__sub li.m-menu__sub--active {
+    background-color: #1890ff;
+    color: #fff;
+}
+
+
+
+/* --------------------重置元件(u-)-------------------------------- */
+
+
+/* --------------------通用响应式系统-------------------------------- */
