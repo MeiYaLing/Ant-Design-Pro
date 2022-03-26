@@ -15,10 +15,9 @@
     <div class="g-ant">
         <!-- 左边菜单栏 -->
         <div class="g-ant__sider">
-        <!-- <div class="g-ant__sider g-ant__sider--close"> -->
             <!-- 需要加一个内容包裹容器进行固定，不然fixed会脱离文档流 -->
-            <div class="g-ant-sider__wrap">
-            <!-- <div class="g-ant-sider__wrap g-ant-sider__wrap--fixed"> -->
+            <!-- <div class="g-ant-sider__wrap"> -->
+                <div class="g-ant-sider__wrap g-ant-sider__wrap--fixed">
                 <!-- 头部logo区域 -->
                 <div class="g-ant-sider__header">
                     <a class="g-ant-sider-header__logo" href=""><img class="m-logo__img" src="./static/logo.svg"
@@ -30,11 +29,11 @@
                 <!-- 中间菜单项 -->
                 <div class="g-ant-sider__main">
                     <!-- <div class="m-menu"> -->
-                    <div class="m-menu m-menu--selected">
+                    <div class="m-menu">
                         <div class="m-menu__content">
-                            <i class="iconfont icon-car"></i>
+                            <i class="iconfont icon-car m-menu-content__icon"></i>
                             <span class="m-menu-content__title">Dashboard</span>
-                            <i class="iconfont icon-arrowup"></i>
+                            <i class="iconfont icon-arrowdown"></i>
                         </div>
                         <ul class="m-menu__sub">
                             <li class="m-menu__sub--active">分析页</li>
@@ -44,66 +43,139 @@
                     </div>
                     <div class="m-menu">
                         <div class="m-menu__content">
-                            <i class="iconfont icon-printer"></i>
+                            <i class="iconfont icon-printer m-menu-content__icon"></i>
                             <span class="m-menu-content__title">表单页</span>
                             <i class="iconfont icon-arrowdown"></i>
                         </div>
+                        <ul class="m-menu__sub">
+                            <li>分析页</li>
+                            <li>监控页</li>
+                            <li>工作台</li>
+                        </ul>
                     </div>
                     <div class="m-menu">
                         <div class="m-menu__content">
-                            <i class="iconfont icon-video"></i>
+                            <i class="iconfont icon-video m-menu-content__icon"></i>
                             <span class="m-menu-content__title">列表页</span>
                             <i class="iconfont icon-arrowdown"></i>
                         </div>
+                        <ul class="m-menu__sub">
+                            <li>分析页</li>
+                            <li>监控页</li>
+                            <li>工作台</li>
+                        </ul>
                     </div>
                     <div class="m-menu">
                         <div class="m-menu__content">
-                            <i class="iconfont icon-check-circle"></i>
+                            <i class="iconfont icon-check-circle m-menu-content__icon"></i>
                             <span class="m-menu-content__title">详情页</span>
                             <i class="iconfont icon-arrowdown"></i>
                         </div>
+                        <ul class="m-menu__sub">
+                            <li>分析页</li>
+                            <li>监控页</li>
+                            <li>工作台</li>
+                        </ul>
                     </div>
                     <div class="m-menu">
                         <div class="m-menu__content">
-                            <i class="iconfont icon-user"></i>
+                            <i class="iconfont icon-user m-menu-content__icon"></i>
                             <span class="m-menu-content__title">结果页</span>
                             <i class="iconfont icon-arrowdown"></i>
                         </div>
+                        <ul class="m-menu__sub">
+                            <li>分析页</li>
+                            <li>监控页</li>
+                            <li>工作台</li>
+                        </ul>
                     </div>
                     <div class="m-menu">
                         <div class="m-menu__content">
-                            <i class="iconfont icon-error"></i>
+                            <i class="iconfont icon-error m-menu-content__icon"></i>
                             <span class="m-menu-content__title">异常页</span>
                             <i class="iconfont icon-arrowdown"></i>
                         </div>
+                        <ul class="m-menu__sub">
+                            <li>分析页</li>
+                            <li>监控页</li>
+                            <li>工作台</li>
+                        </ul>
                     </div>
                     <div class="m-menu">
                         <div class="m-menu__content">
-                            <i class="iconfont icon-highlight"></i>
+                            <i class="iconfont icon-highlight m-menu-content__icon"></i>
                             <span class="m-menu-content__title">个人页</span>
                             <i class="iconfont icon-arrowdown"></i>
                         </div>
+                        <ul class="m-menu__sub">
+                            <li>分析页</li>
+                            <li>监控页</li>
+                            <li>工作台</li>
+                        </ul>
                     </div>
                     <div class="m-menu">
                         <div class="m-menu__content">
-                            <i class="iconfont icon-wrench"></i>
+                            <i class="iconfont icon-wrench m-menu-content__icon"></i>
                             <span class="m-menu-content__title">图形编辑器</span>
                             <i class="iconfont icon-arrowdown"></i>
                         </div>
+                        <ul class="m-menu__sub">
+                            <li>分析页</li>
+                            <li>监控页</li>
+                            <li>工作台</li>
+                        </ul>
                     </div>
                 </div>
                 <!-- 底部按钮区域 -->
                 <div class="g-ant-sider__footer">
-                    <i class="iconfont icon-outdent"></i>
+                    <i class="iconfont icon-outdent u-bar"></i>
                 </div>
             </div>
         </div>
         <!-- 右边版心 -->
         <div class="g-ant__main">
- 
+
         </div>
 
     </div>
+    <script>
+        const barBtn = document.querySelector(".u-bar");
+        const sider = document.querySelector(".g-ant__sider")
+
+        // 菜单折叠
+        barBtn.onclick = function () {
+            sider.classList.toggle("g-ant__sider--close")
+        }
+
+        const menuBtns = document.querySelectorAll(".m-menu__content");
+        menuBtns.forEach(ele => {
+            // 展开或关闭子菜单
+            ele.onclick = function () {
+                let menu = this.parentElement;
+                menu.classList.toggle("m-menu--selected");
+                // 修改菜单后面的icon
+                let arrowIcon = this.querySelector("[class*='icon-arrow']");
+                if (menu.classList.contains("m-menu--selected")) {
+                    arrowIcon.className = "iconfont icon-arrowup"
+                } else {
+                    arrowIcon.className = "iconfont icon-arrowdown"
+                }
+            }
+        })
+
+        // 子菜单选中效果
+        const subMenuLis = document.querySelectorAll('.m-menu__sub>li');
+        subMenuLis.forEach(li => {
+            li.onclick = function () {
+                subMenuLis.forEach(li => {
+                    if (li.classList.contains("m-menu__sub--active")) {
+                        li.classList.remove("m-menu__sub--active")
+                    }
+                })
+                this.classList.toggle("m-menu__sub--active")
+            }
+        })
+    </script>
 </body>
 
 </html>

@@ -293,6 +293,16 @@ a {
     margin-left: 20px;
 }
 
+/* 菜单关闭状态时，将菜单图标放大 */
+.g-ant__sider--close .m-menu-content__icon {
+    transform: scale(1.5);
+}
+
+/* 菜单关闭状态时，将子菜单隐藏 */
+.g-ant__sider--close .m-menu .m-menu__sub {
+    display: none;
+}
+
 /* 菜单包容器 */
 .g-ant-sider__wrap {
     display: flex;
@@ -303,7 +313,7 @@ a {
 /* 菜单栏固定 */
 .g-ant-sider__wrap--fixed {
     position: fixed;
-    width: 208px;
+    width: inherit;
     left: 0;
     top: 0;
 }
@@ -314,6 +324,7 @@ a {
     display: flex;
     align-items: center;
     flex-shrink: 0;
+    overflow: hidden;
 }
 
 .g-ant-sider-header__logo {
@@ -324,7 +335,25 @@ a {
 /* 菜单项 */
 .g-ant-sider__main {
     flex-grow: 1;
+    overflow: hidden auto;
 }
+
+/* 修改导航样式 */
+.g-ant-sider__main::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.g-ant-sider__main::-webkit-scrollbar-thumb {
+    background: #51606d;
+    border-radius: 3px;
+}
+
+.g-ant-sider__main::-webkit-scrollbar-track {
+    background: #263849;
+    border-radius: 3px;
+}
+
 
 /* 底部按钮 */
 .g-ant-sider__footer {
@@ -333,6 +362,7 @@ a {
     line-height: 45px;
     padding-left: 13px;
     border-top: 1px solid #001122;
+    cursor: pointer;
 }
 
 
@@ -356,9 +386,14 @@ a {
     height: 32px;
 }
 
+.m-logo__title{
+    flex-shrink: 0;
+}
+
 /* 菜单 */
 .m-menu {
     color: #aaadb2;
+    cursor: pointer;
 }
 
 .m-menu--selected {
@@ -387,14 +422,14 @@ a {
     background-color: #000c18;
 }
 
-.m-menu__sub li {
+.m-menu__sub>li {
     height: 40px;
     line-height: 40px;
     padding-left: 48px;
     color: #a2afb8;
 }
 
-.m-menu__sub li.m-menu__sub--active {
+.m-menu__sub>li.m-menu__sub--active {
     background-color: #1890ff;
     color: #fff;
 }
