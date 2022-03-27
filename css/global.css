@@ -365,18 +365,50 @@ a {
     cursor: pointer;
 }
 
-
-
-
-
-
-
-
-
 /* 右边版心 */
 .g-ant__main {
     flex-grow: 1;
     background-color: #f1f2f6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.g-ant-main__header {
+    flex-shrink: 0;
+    height: 48px;
+    border-bottom: 1px solid #e6e7eb;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    column-gap: 20px;
+    padding-right: 20px;
+    background-color: #fff;
+}
+
+.g-ant-main__header>i {
+    cursor: pointer;
+}
+
+.g-ant-main__header>span {
+    margin-left: -15px;
+    cursor: pointer;
+}
+
+.g-ant-main__main {
+    flex-grow: 1;
+}
+
+.g-ant-main__footer {
+    flex-shrink: 0;
+    margin-top: 70px;
+    margin-bottom: 28px;
+    text-align: center;
+    color: #808984;
+    line-height: 1.5;
+}
+.g-ant-main__footer>div:nth-child(1)>i{
+    margin: 0 15px;
 }
 
 /* --------------------通用模块(m-)-------------------------------- */
@@ -386,7 +418,7 @@ a {
     height: 32px;
 }
 
-.m-logo__title{
+.m-logo__title {
     flex-shrink: 0;
 }
 
