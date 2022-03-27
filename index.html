@@ -12,6 +12,7 @@
 </head>
 
 <body>
+    <!-- 主区域 -->
     <div class="g-ant">
         <!-- 左边菜单栏 -->
         <div class="g-ant__sider">
@@ -134,7 +135,7 @@
         </div>
         <!-- 右边版心 -->
         <div class="g-ant__main">
-            <div class="g-ant-main__header">
+            <div class="g-ant-main__header g-ant-main__header--fixed">
                 <i class="iconfont icon-error"></i>
                 <i class="iconfont icon-read"></i>
                 <i class="iconfont icon-check-circle"></i>
@@ -185,6 +186,62 @@
         </div>
 
     </div>
+    <!-- 设置区域 -->
+    <div class="m-setting m-setting--close">
+        <div class="m-setting__button">
+            <i class="iconfont icon-setting"></i>
+        </div>
+        <div class="m-setting__main">
+            <div class="m-setting-main__theme">
+                <h3>主题色</h3>
+                <ul>
+                    <li class="u-foxiaolan">
+                        <i class="iconfont icon-check"></i>
+                    </li>
+                    <li class="u-bomu"></li>
+                    <li class="u-huoshan"></li>
+                    <li class="u-rimu"></li>
+                    <li class="u-mingqing"></li>
+                    <li class="u-jiguanglv"></li>
+                    <li class="u-jikelan"></li>
+                    <li class="u-jiangzi"></li>
+                </ul>
+            </div>
+            <div class="m-setting-main__content">
+                <h3>固定内容</h3>
+                <div class="m-setting-main-content__item">
+                    <span>内容头部</span>
+                    <div class="u-switch j-header--fixed">
+                        <div></div>
+                    </div>
+                </div>
+                <div class="m-setting-main-content__item">
+                    <span>侧边菜单</span>
+                    <div class="u-switch j-sider--fixed">
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="m-setting-main__content">
+                <h3>显示内容</h3>
+                <div class="m-setting-main-content__item">
+                    <span>内容头部</span>
+                    <div class="u-switch j-header--show">
+                        <div></div>
+                    </div>
+                </div>
+                <div class="m-setting-main-content__item">
+                    <span>侧边菜单</span>
+                    <div class="u-switch j-sider--show">
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 遮罩层 -->
+    <div class="m-layer">
+    </div>
     <script>
         const barBtn = document.querySelector(".u-bar");
         const sider = document.querySelector(".g-ant__sider")
@@ -221,6 +278,61 @@
                 })
                 this.classList.toggle("m-menu__sub--active")
             }
+        })
+        // 设置按钮
+        const settingBtn = document.querySelector(".m-setting__button");
+        settingBtn.addEventListener("click", function () {
+            const setting =
+                this.parentElement;
+            setting.classList.toggle("m-setting--close")
+            if (setting.classList.contains("m-setting--close")) {
+                // 关闭状态
+                this.querySelector(".iconfont").className = "iconfont icon-setting";
+            } else {
+                this.querySelector(".iconfont").className = "iconfont icon-close";
+            }
+        })
+
+        // 内容切换按钮
+        const switchBtns = document.querySelectorAll(".u-switch");
+        const mainHeader = document.querySelector(".g-ant-main__header");
+        const siderWrap = document.querySelector(".g-ant-sider__wrap");
+        switchBtns.forEach(ele => {
+            ele.addEventListener("click", function () {
+                this.classList.toggle("u-switch--close")
+                if (this.classList.contains("j-header--fixed")) {
+                    // 头部固定
+                    mainHeader.classList.toggle("g-ant-main__header--fixed");
+
+                } else if (this.classList.contains("j-sider--fixed")) {
+                    // 侧菜单固定
+                    siderWrap.classList.toggle("g-ant-sider__wrap--fixed");
+
+                } else if (this.classList.contains("j-header--show")) {
+                    // 头部隐藏
+                    mainHeader.classList.toggle("hide");
+
+                } else if (this.classList.contains("j-sider--show")) {
+                    // 侧菜单隐藏
+                    sider.classList.toggle("hide");
+
+                }
+            })
+        })
+
+        // 切换主题
+        const themes = document.querySelectorAll(".m-setting-main__theme>ul>li");
+        themes.forEach(ele => {
+            ele.addEventListener("click", function () {
+                // 切换icon
+                themes.forEach(ele => {
+                    ele.innerHTML = "";
+                })
+                this.innerHTML = "<i class='iconfont icon-check'></i>";
+                // 修改皮肤
+                const currentTheme = getComputedStyle(this).backgroundColor;
+                document.documentElement.style.setProperty("--theme", currentTheme)
+            })
         })
     </script>
 </body>
