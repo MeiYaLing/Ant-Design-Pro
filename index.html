@@ -133,15 +133,21 @@
                 </div>
             </div>
         </div>
+        <!-- 遮罩层 -->
+        <div class="m-layer">
+        </div>
         <!-- 右边版心 -->
         <div class="g-ant__main">
             <div class="g-ant-main__header g-ant-main__header--fixed">
+                <a class="m-logo" href=""><img class="m-logo__img" src="./static/logo.svg" alt=""></a>
+                <i class="iconfont icon-outdent u-bar"></i>
                 <i class="iconfont icon-error"></i>
                 <i class="iconfont icon-read"></i>
                 <i class="iconfont icon-check-circle"></i>
                 <i class="iconfont icon-user"></i>
                 <span>admin</span>
                 <i class="iconfont icon-video"></i>
+
             </div>
             <div class="g-ant-main__main">
                 <div class="index-content">
@@ -333,6 +339,21 @@
                 const currentTheme = getComputedStyle(this).backgroundColor;
                 document.documentElement.style.setProperty("--theme", currentTheme)
             })
+        })
+
+
+        // 主区域顶部的菜单折叠按钮
+        const mainHeaderBar = document.querySelector(".g-ant-main__header>.u-bar")
+        const barLayer = document.querySelector(".g-ant__sider+.m-layer");
+        mainHeaderBar.addEventListener("click", function () {
+            sider.classList.add("show");
+            barLayer.classList.add("show")
+        })
+
+        // 显示折叠按钮时，同时显示遮罩层
+        barLayer.addEventListener("click", function () {
+            sider.classList.remove("show");
+            barLayer.classList.remove("show")
         })
     </script>
 </body>

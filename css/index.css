@@ -65,21 +65,82 @@
     background-size: contain;
 }
 
-.index-content-item__info1{
+.index-content-item__info1 {
     background-image: url("./../static/index-1.jpg");
 }
-.index-content-item__info2{
+
+.index-content-item__info2 {
     background-image: url("./../static/index-2.jpg");
 }
-.index-content-item__info3{
+
+.index-content-item__info3 {
     background-image: url("./../static/index-3.jpg");
 }
-.index-content-item__info4{
+
+.index-content-item__info4 {
     background-image: url("./../static/index-4.jpg");
 }
-.index-content-item__info5{
+
+.index-content-item__info5 {
     background-image: url("./../static/index-5.jpg");
 }
-.index-content-item__info6{
+
+.index-content-item__info6 {
     background-image: url("./../static/index-6.jpg");
 }
+
+/* 响应式布局:PC端 ——> 移动端 */
+@media (max-width:1400px) {}
+
+@media (max-width:1200px) {
+    .index-content {
+        margin: 24px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, 285px);
+        grid-template-areas:
+            "a1 a1 a1"
+            "a1 a1 a1"
+            "a2 a3 a5"
+            "a4 a4 a6"
+        ;
+        gap: 20px;
+    }
+}
+
+@media (max-width:992px) {
+    .index-content {
+        margin: 24px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(5, 285px);
+        grid-template-areas:
+            "a1 a1"
+            "a1 a1"
+            "a2 a3"
+            "a4 a4"
+            "a5 a6"
+        ;
+        gap: 20px;
+    }
+}
+
+@media (max-width:768px) {
+    .index-content {
+        margin: 24px;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(6, 285px);
+        grid-template-areas:
+            "a1"
+            "a2"
+            "a3"
+            "a4"
+            "a5"
+            "a6"
+        ;
+        gap: 20px;
+    }
+}
+
+@media (max-width:576px) {}

@@ -273,8 +273,9 @@ a {
     width: 208px;
     flex-shrink: 0;
     color: #fff;
-    z-index: 2;
+    z-index: 3;
 }
+
 
 /* 菜单栏关闭状态 */
 .g-ant__sider--close {
@@ -305,6 +306,12 @@ a {
 
 /* 菜单关闭状态时，将子菜单隐藏 */
 .g-ant__sider--close .m-menu .m-menu__sub {
+    display: none;
+}
+
+/* 遮罩层 */
+.g-ant__sider+.m-layer {
+    z-index: 2;
     display: none;
 }
 
@@ -392,6 +399,19 @@ a {
     background-color: #fff;
 }
 
+.g-ant-main__header>.u-bar {
+    display: none;
+}
+
+.g-ant-main__header>.m-logo {
+    display: none;
+}
+
+.g-ant__sider:is(.hide)~.g-ant__main>.g-ant-main__header>.m-logo {
+    display: block;
+    margin-right: auto;
+    margin-left: 16px;
+}
 
 .g-ant-main__header--fixed {
     position: fixed;
@@ -401,7 +421,7 @@ a {
 }
 
 /* 排除有隐藏选择器时 */
-.g-ant-main__header--fixed:not(.hide) + .g-ant-main__main{
+.g-ant-main__header--fixed:not(.hide)+.g-ant-main__main {
     margin-top: 48px;
 }
 
@@ -647,3 +667,32 @@ a {
 
 
 /* --------------------通用响应式系统-------------------------------- */
+@media (max-width:1400px) {}
+
+@media (max-width:1200px) {}
+
+@media (max-width:992px) {
+    .g-ant__sider {
+        display: none;
+    }
+
+    .g-ant-main__header>.u-bar {
+        display: block;
+        margin-right: auto;
+    }
+
+    .g-ant-main__header>.m-logo {
+        display: block;
+        margin-left: 16px;
+        margin-right: 0;
+    }
+
+    /* 当侧菜单是隐藏状态时，不显示按钮 */
+    .g-ant__sider:is(.hide)~.g-ant__main>.g-ant-main__header>.u-bar {
+        display: none;
+    }
+}
+
+@media (max-width:768px) {}
+
+@media (max-width:576px) {}
